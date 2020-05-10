@@ -6,25 +6,23 @@ import {
   Collapse,
   Nav,
   NavItem,
-  NavLink,
   Container,
 } from "reactstrap";
 import { navItems } from "../../data";
+import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const NavbarTop = () => {
   // Define state for collapse is open or not
   const [isOpen, setIsOpen] = useState(false);
+  const [navbarColor, setNavbarColor] = useState("bg-transparent");
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      const navbars = document.querySelectorAll(".navbar-theme");
-      navbars.forEach((item, index) => {
-        if (window.scrollY > 100) {
-          item.classList.remove("bg-transparent");
-          item.classList.add("bg-dark");
-        } else {
-          item.classList.remove("bg-dark");
-          item.classList.add("bg-transparent");
-        }
-      });
+      if (window.scrollY > 100) {
+        setNavbarColor("bg-dark");
+      } else {
+        setNavbarColor("bg-transparent");
+      }
     });
   }, []);
 
@@ -34,7 +32,7 @@ const NavbarTop = () => {
     <Navbar
       dark
       expand="lg"
-      className="bg-transparent navbar-theme"
+      className={navbarColor + " navbar-theme"}
       fixed="top"
     >
       <Container>
@@ -44,7 +42,12 @@ const NavbarTop = () => {
           <Nav className="ml-auto" navbar>
             {navItems.map((item, index) => (
               <NavItem key={index}>
-                <NavLink className="px-4 text-white" href={item.url}>
+                <NavLink exact className="px-3 nav-link" to={item.url}>
+                  <FontAwesomeIcon
+                    icon={item.icon}
+                    className="mr-2"
+                    transform="shrink-1"
+                  />
                   {item.title}
                 </NavLink>
               </NavItem>

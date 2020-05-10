@@ -34,9 +34,17 @@ code {
 }
 footer,
 section {
+  position: relative;
   padding-top: 80px;
   padding-bottom: 80px;
 }
 .navbar-theme {
   transition: all 0.3s ease;
+}
+.vh-50 {
+  height: 50vh;
+}
+.header-classic {
+  padding-top: 150px;
+  padding-bottom: 120px;
 }
