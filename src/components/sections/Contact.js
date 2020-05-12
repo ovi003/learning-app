@@ -18,18 +18,19 @@ const Contact = () => {
     name: "",
     email: "",
     message: "",
+    errors: {
+      name: "Invalid",
+      email: "Required",
+      message: "Required",
+    },
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     setFields({
       ...fields,
       [name]: value,
     });
-    if (name === "message") {
-      console.log(value.length);
-      const length = 50 - value.length;
-      setMessageLength(length);
-    }
   };
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -54,7 +55,7 @@ const Contact = () => {
             )}
             <Form onSubmit={handleSubmit}>
               <FormGroup>
-                <Label>Name</Label>
+                <Label>Name*</Label>
                 <Input
                   type="text"
                   name="name"
@@ -62,9 +63,14 @@ const Contact = () => {
                   placeholder="Name"
                   onChange={handleChange}
                 />
+                {fields.errors.name && (
+                  <span className="text-danger" style={{ fontSize: "13px" }}>
+                    {fields.errors.name}
+                  </span>
+                )}
               </FormGroup>
               <FormGroup>
-                <Label>Email</Label>
+                <Label>Email*</Label>
                 <Input
                   type="text"
                   name="email"
@@ -72,9 +78,14 @@ const Contact = () => {
                   placeholder="Email"
                   onChange={handleChange}
                 />
+                {fields.errors.email && (
+                  <span className="text-danger" style={{ fontSize: "13px" }}>
+                    {fields.errors.email}
+                  </span>
+                )}
               </FormGroup>
               <FormGroup>
-                <Label>Message</Label>
+                <Label>Message*</Label>
                 <Input
                   type="textarea"
                   rows={5}
@@ -83,10 +94,18 @@ const Contact = () => {
                   placeholder="Your message"
                   onChange={handleChange}
                 />
-                <span className="text-muted" style={{ fontSize: "13px" }}>
-                  <FontAwesomeIcon icon="info-circle" className="mr-2" />
-                  You can type maximum {messageLengh} characters
-                </span>
+                {fields.errors.message ? (
+                  fields.errors.message && (
+                    <span className="text-danger" style={{ fontSize: "13px" }}>
+                      {fields.errors.message}
+                    </span>
+                  )
+                ) : (
+                  <span className="text-muted" style={{ fontSize: "13px" }}>
+                    <FontAwesomeIcon icon="info-circle" className="mr-2" />
+                    You can type maximum {messageLengh} characters
+                  </span>
+                )}
               </FormGroup>
               <Button className="px-5" type="submit" color="primary">
                 Send
