@@ -1,7 +1,7 @@
-import Banner from "../sections/Banner";
-import About from "../sections/About";
-import Services from "../sections/Services";
-import Pricing from "../sections/Pricing";
-import Contact from "../sections/Contact";
+import HomePage from "./HomePage";
+import PageAbout from "./PageAbout";
+import PageContact from "./PageContact";
+import PagePricing from "./PagePricing";
+import PageServices from "./PageServices";
 
-export { Banner, About, Services, Pricing, Contact };
+export { HomePage, PageAbout, PageContact, PagePricing, PageServices };

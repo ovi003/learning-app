@@ -6,6 +6,21 @@ import {
   faDollarSign,
   faPhone,
   faCheck,
+  faChartBar,
+  faTh,
+  faEnvelope,
+  faEdit,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faHome, faInfoCircle, faHeadset, faDollarSign, faPhone, faCheck);
+library.add(
+  faHome,
+  faInfoCircle,
+  faHeadset,
+  faDollarSign,
+  faPhone,
+  faCheck,
+  faChartBar,
+  faTh,
+  faEnvelope,
+  faEdit
+);

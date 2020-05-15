@@ -1,9 +1,15 @@
 import React from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { useHistory } from "react-router-dom";
 
 const Signin = () => {
+  const history = useHistory();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    history.push("/dashboard");
+  };
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <FormGroup>
         <Label>Username</Label>
         <Input type="email" name="username" placeholder="Enter your email" />

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
   Navbar,
-  NavbarBrand,
   NavbarToggler,
   Collapse,
   Nav,
@@ -10,7 +9,7 @@ import {
   Button,
 } from "reactstrap";
 import { navItems } from "../../data";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ThemeModal from "../modals/ThemeModal";
 import Signin from "../auth/Signin";
@@ -45,7 +44,9 @@ const NavbarTop = () => {
         fixed="top"
       >
         <Container>
-          <NavbarBrand href="/">Learning Task</NavbarBrand>
+          <Link to="/" className="navbar-brand">
+            Learning App
+          </Link>
           <NavbarToggler onClick={toggle} />
           <Collapse navbar isOpen={isOpen}>
             <Nav className="ml-auto" navbar>

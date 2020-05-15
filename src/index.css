@@ -48,3 +48,27 @@ section {
   padding-top: 150px;
   padding-bottom: 120px;
 }
+.navbar-vertical {
+  position: fixed !important;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  top: 56px;
+  left: 0;
+  height: calc(100vh - 56px);
+  width: 250px;
+  align-items: start;
+}
+.navbar-vertical + .content {
+  margin-left: 250px;
+}
+.navbar-vertical .navbar-nav {
+  flex-direction: column;
+}
+.logo {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  padding: 2px 15px;
+  margin-right: 8px;
+  font-weight: bolder;
+}
